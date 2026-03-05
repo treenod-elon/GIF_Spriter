@@ -205,6 +205,28 @@ body::after {
   background-clip: text;
 }
 
+/* Hero background image — covers header + upload section only */
+.hero-bg-wrapper {
+  position: relative;
+}
+.hero-bg-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(4rem + 20rem);
+  background: url('/images/hero-bg.webp') center top / cover no-repeat;
+  opacity: 0.4;
+  z-index: 0;
+  pointer-events: none;
+}
+@media (min-width: 768px) {
+  .hero-bg-wrapper::before {
+    height: calc(4rem + 24rem);
+  }
+}
+
 /* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 6px;

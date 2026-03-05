@@ -41,8 +41,10 @@ export default function RootLayout({
     >
       <body className="font-body antialiased">
         <ClientProviders>
-          <Header />
-          <main className="relative z-10 min-h-screen">{children}</main>
+          <div className="hero-bg-wrapper">
+            <Header />
+            <main className="relative z-10 min-h-screen">{children}</main>
+          </div>
           <Footer />
         </ClientProviders>
       </body>

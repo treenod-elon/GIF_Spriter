@@ -225,7 +225,7 @@ export default function Home() {
   return (
     <div>
       {/* Hero / Upload Section */}
-      <section id="upload-section" className="px-4 py-16 md:px-8 md:py-20">
+      <section id="upload-section" className="relative px-4 py-16 md:px-8 md:py-20">
         <div className="mx-auto grid max-w-[1200px] items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left - Text */}
           <div>
