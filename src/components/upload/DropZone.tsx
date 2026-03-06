@@ -160,7 +160,7 @@ export default function DropZone({
           <p className="mt-5 font-display text-lg font-semibold text-text-primary">
             Drag & drop your sprite files here
           </p>
-          <p className="mt-1 text-sm text-text-secondary">or click to browse PNG, JPG, GIF</p>
+          <p className="mt-1 text-sm text-text-secondary">GIF, MP4, WebM, PNG, JPG</p>
           <Button variant="upload" size="sm" className="mt-4" onClick={onBrowse}>
             <Upload className="h-4 w-4" />
             Browse files

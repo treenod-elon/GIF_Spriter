@@ -25,7 +25,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'GIF Spriter - Sprite Resource Library',
+  title: 'VFX Spriter - Sprite Resource Library',
   description:
     'Browse, upload & download game-ready sprite effects for mobile game development. Convert videos and GIFs to sprite sheets.',
 };

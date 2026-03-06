@@ -22,12 +22,12 @@ export default function GuidePage() {
           className="mb-10 inline-flex items-center gap-2 rounded-lg border border-accent-primary/30 px-4 py-2 text-sm font-semibold text-accent-primary transition-all hover:bg-accent-primary/10 hover:border-accent-primary/50"
         >
           <ArrowLeft className="h-4 w-4" />
-          GIF Spriter로 돌아가기
+          VFX Spriter로 돌아가기
         </Link>
 
         {/* Title */}
         <h1 className="font-display text-4xl font-bold leading-tight text-text-primary md:text-5xl">
-          <span className="text-gradient">GIF Spriter</span> 이용 안내
+          <span className="text-gradient">VFX Spriter</span> 이용 안내
         </h1>
         <p className="mt-4 text-base text-text-secondary">
           VFX 스프라이트 리소스 라이브러리의 주요 기능과 사용 방법을 안내합니다.
@@ -46,9 +46,10 @@ export default function GuidePage() {
               </h2>
             </div>
             <p className="leading-relaxed text-text-secondary">
-              GIF Spriter는 모바일 게임 개발자를 위한 무료 VFX 스프라이트 리소스 라이브러리입니다.
-              GIF 애니메이션을 업로드하면 자동으로 프레임을 분석하고, 게임에서 바로 사용할 수 있는
-              스프라이트 시트로 변환해 줍니다. 로그인 없이 누구나 자유롭게 이용할 수 있습니다.
+              VFX Spriter는 모바일 게임 개발자를 위한 무료 VFX 스프라이트 리소스 라이브러리입니다.
+              GIF 애니메이션이나 동영상(MP4, WebM)을 업로드하면 자동으로 프레임을 분석하고,
+              게임에서 바로 사용할 수 있는 스프라이트 시트로 변환해 줍니다.
+              로그인 없이 누구나 자유롭게 이용할 수 있습니다.
             </p>
           </section>
 
@@ -69,8 +70,9 @@ export default function GuidePage() {
                   로컬 파일 업로드
                 </h3>
                 <p className="pl-6 leading-relaxed text-text-secondary">
-                  메인 페이지의 업로드 영역에 GIF 파일을 드래그 앤 드롭하거나 클릭하여 파일을 선택합니다.
-                  여러 파일을 한 번에 드롭하면 일괄 업로드됩니다.
+                  메인 페이지의 업로드 영역에 GIF, MP4, WebM, PNG, JPG 파일을 드래그 앤 드롭하거나
+                  클릭하여 파일을 선택합니다. 여러 파일을 한 번에 드롭하면 일괄 업로드됩니다.
+                  동영상은 10초 이하만 업로드 가능합니다.
                 </p>
               </div>
               <div>
@@ -79,7 +81,7 @@ export default function GuidePage() {
                   URL 임포트
                 </h3>
                 <p className="pl-6 leading-relaxed text-text-secondary">
-                  헤더의 &quot;URL Import&quot; 버튼을 클릭하여 외부 URL에서 직접 GIF 리소스를 가져올 수 있습니다.
+                  헤더의 &quot;URL Import&quot; 버튼을 클릭하여 외부 URL에서 직접 리소스를 가져올 수 있습니다.
                   URL을 입력하면 AI가 이미지를 분석하고 자동으로 처리합니다.
                 </p>
               </div>
@@ -97,13 +99,14 @@ export default function GuidePage() {
               </h2>
             </div>
             <p className="mb-3 leading-relaxed text-text-secondary">
-              업로드된 GIF는 자동으로 각 프레임으로 분리되어 하나의 스프라이트 시트(PNG)로 합쳐집니다.
-              프레임 간 간격 없이 깔끔하게 정렬되며, 원본 GIF의 해상도를 그대로 유지합니다.
+              업로드된 GIF 및 동영상(MP4, WebM)은 자동으로 각 프레임으로 분리되어 하나의
+              스프라이트 시트(PNG)로 합쳐집니다. 프레임 간 간격 없이 깔끔하게 정렬되며,
+              원본 해상도를 그대로 유지합니다.
             </p>
             <div className="flex items-start gap-2">
               <Download className="mt-0.5 h-4 w-4 shrink-0 text-accent-primary" />
               <p className="leading-relaxed text-text-secondary">
-                카드의 다운로드 버튼을 클릭하면 스프라이트 시트(PNG), 개별 프레임, 원본 GIF 등
+                카드의 다운로드 버튼을 클릭하면 스프라이트 시트(PNG), 개별 프레임, 원본 파일 등
                 원하는 형식을 선택하여 다운로드할 수 있습니다.
               </p>
             </div>
@@ -146,8 +149,10 @@ export default function GuidePage() {
             <div className="grid gap-3 sm:grid-cols-3">
               {[
                 { format: 'GIF', desc: '애니메이션 GIF 업로드' },
+                { format: 'MP4', desc: '동영상 업로드 (10초 이하)' },
+                { format: 'WebM', desc: '동영상 업로드 (10초 이하)' },
                 { format: 'PNG', desc: '스프라이트 시트 / 개별 프레임' },
-                { format: 'WebP', desc: '고효율 이미지 다운로드' },
+                { format: 'JPG', desc: '이미지 업로드' },
               ].map(({ format, desc }) => (
                 <div
                   key={format}
@@ -169,7 +174,7 @@ export default function GuidePage() {
             className="inline-flex items-center gap-2 rounded-lg bg-accent-primary px-6 py-3 text-sm font-semibold text-text-inverse transition-all hover:bg-accent-primary-hover hover:shadow-glow"
           >
             <ArrowLeft className="h-4 w-4" />
-            GIF Spriter로 돌아가기
+            VFX Spriter로 돌아가기
           </Link>
         </div>
       </div>

@@ -25,7 +25,7 @@ export default function Header() {
             <Sparkles className="h-5 w-5 text-accent-primary" />
           </div>
           <span className="font-display text-xl font-bold text-text-primary">
-            GIF Spriter
+            VFX Spriter
           </span>
         </div>
 

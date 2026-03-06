@@ -230,7 +230,7 @@ export default function Home() {
           {/* Left - Text */}
           <div>
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.12em] text-accent-primary">
-              GIF Sprite Resource Library
+              VFX Sprite Resource Library
             </p>
             <h1 className="font-display text-4xl font-bold leading-tight text-text-primary md:text-5xl">
               Browse, Upload &amp; Download{' '}
@@ -241,7 +241,7 @@ export default function Home() {
               or browse community resources &mdash; no login required.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              {['Sprite Sheets', 'Auto Detection', 'PNG & WebP', '100% Free'].map((label) => (
+              {['Sprite Sheets', 'Video & GIF', 'Auto Detection', '100% Free'].map((label) => (
                 <span
                   key={label}
                   className="rounded-full border border-[var(--glass-border)] px-3.5 py-1.5 text-xs font-medium text-text-secondary"
