@@ -9,6 +9,7 @@ import {
   saveFrameAsync,
 } from '@/lib/storage/file-storage';
 import { extractGifFrames } from './gif-processor';
+import { extractVideoFrames } from './video-processor';
 import { detectByAlpha, detectByGrid, sliceByGrid } from './sprite-detector';
 import { normalizeFrameSizes, generateThumbnail, composeSpritesheet } from './frame-processor';
 import { packFrames } from './sheet-packer';
@@ -116,9 +117,21 @@ export async function processUpload(
       fps: result.fps,
     }));
   } else if (isVideo) {
-    extractionPromise = Promise.reject(
-      new Error('Video processing not yet implemented. Please upload GIF or PNG.')
-    );
+    extractionPromise = extractVideoFrames(
+      buffer,
+      file.type,
+      (completed, total) => {
+        const pct = total > 0
+          ? 10 + Math.round((completed / total) * 40)
+          : Math.min(10 + completed, 50);
+        report(jobId, 'extracting', pct, `Extracted frame ${completed}${total > 0 ? `/${total}` : ''}`);
+      }
+    ).then((result) => ({
+      frames: result.frames,
+      frameWidth: result.width,
+      frameHeight: result.height,
+      fps: result.fps,
+    }));
   } else {
     // Image - try auto-detection for sprite sheets
     extractionPromise = processImage(buffer, options).then((result) => ({
@@ -228,9 +241,10 @@ export async function processUpload(
   );
   saveSpritesheet(id, sheetBuffer);
 
-  // Generate thumbnail
+  // Generate thumbnail (use first frame for video since Sharp can't read video)
   report(jobId, 'thumbnail', 88, 'Generating thumbnail');
-  const thumbBuffer = await generateThumbnail(buffer);
+  const thumbSource = isVideo ? frames[0] : buffer;
+  const thumbBuffer = await generateThumbnail(thumbSource);
   saveThumbnail(id, thumbBuffer);
 
   // Build frame positions

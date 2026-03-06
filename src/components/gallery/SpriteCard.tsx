@@ -21,6 +21,7 @@ export default function SpriteCard({ sprite, onDownloadClick, onDelete, onEdit }
   const [isLoaded, setIsLoaded] = useState(false);
 
   const isGif = sprite.inputType === 'gif';
+  const isVideo = sprite.inputType === 'video';
   const frameDuration = 1000 / (sprite.fps || 24);
 
   const loadFrames = useCallback(async () => {
@@ -67,7 +68,7 @@ export default function SpriteCard({ sprite, onDownloadClick, onDelete, onEdit }
 
   // Auto-loop: load frames and start animation on mount (spritesheet only)
   useEffect(() => {
-    if (isGif) return;
+    if (isGif || isVideo) return;
     let cancelled = false;
 
     const start = async () => {
@@ -89,7 +90,7 @@ export default function SpriteCard({ sprite, onDownloadClick, onDelete, onEdit }
         animationRef.current = null;
       }
     };
-  }, [isGif, loadFrames, drawFrame, tick]);
+  }, [isGif, isVideo, loadFrames, drawFrame, tick]);
 
   const handleDownload = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -102,9 +103,9 @@ export default function SpriteCard({ sprite, onDownloadClick, onDelete, onEdit }
 
   const typeBadge = sprite.inputType === 'gif'
     ? 'GIF'
-    : sprite.inputType === 'spritesheet'
-    ? 'SPRITE'
-    : 'VIDEO';
+    : sprite.inputType === 'video'
+    ? 'VIDEO'
+    : 'SPRITE';
 
   return (
     <div className="glass-card overflow-hidden rounded-2xl">
@@ -119,6 +120,15 @@ export default function SpriteCard({ sprite, onDownloadClick, onDelete, onEdit }
           <img
             src={`/api/sprites/${sprite.id}/original`}
             alt="sprite"
+            className="max-h-full max-w-full object-contain"
+          />
+        ) : isVideo ? (
+          <video
+            src={`/api/sprites/${sprite.id}/original`}
+            autoPlay
+            loop
+            muted
+            playsInline
             className="max-h-full max-w-full object-contain"
           />
         ) : (

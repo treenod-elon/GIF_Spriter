@@ -13,6 +13,7 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  serverExternalPackages: ['@ffmpeg-installer/ffmpeg', '@ffprobe-installer/ffprobe', 'fluent-ffmpeg'],
   experimental: {
     serverActions: {
       bodySizeLimit: '100mb',

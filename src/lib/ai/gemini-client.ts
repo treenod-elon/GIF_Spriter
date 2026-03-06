@@ -30,7 +30,9 @@ export async function analyzeSprite(
 ): Promise<AnalysisResult> {
   const apiKey = process.env.GEMINI_API_KEY;
 
-  if (!apiKey) {
+  // Video buffers cannot be processed by Sharp — use fallback
+  const isVideo = mimeType.startsWith('video/');
+  if (!apiKey || isVideo) {
     return buildFallback(fallbackName);
   }
 
