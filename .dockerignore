@@ -1,0 +1,10 @@
+node_modules
+.next
+.git
+.claude
+data
+screenshot
+*.md
+.env*.local
+.gitignore
+tsconfig.tsbuildinfo
