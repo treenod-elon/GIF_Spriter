@@ -3,6 +3,7 @@ import { Inter, Space_Grotesk, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import InfoButton from '@/components/ui/InfoButton';
 import ClientProviders from '@/components/layout/ClientProviders';
 
 const inter = Inter({
@@ -46,6 +47,7 @@ export default function RootLayout({
             <main className="relative z-10 min-h-screen">{children}</main>
           </div>
           <Footer />
+          <InfoButton />
         </ClientProviders>
       </body>
     </html>

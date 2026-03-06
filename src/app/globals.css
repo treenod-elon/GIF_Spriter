@@ -12,14 +12,9 @@
   --color-accent-primary: #6E56FF;
   --color-accent-primary-hover: #8370FF;
   --color-accent-primary-active: #5A42E6;
-  --color-accent-secondary: #00D4AA;
-  --color-accent-secondary-hover: #1AE0BA;
-  --color-accent-tertiary: #FF6B9D;
   --color-accent-upload: #FFB344;
   --color-accent-upload-hover: #FFC266;
   --color-accent-upload-active: #E6A03D;
-  --color-accent-edit: #FF6B9D;
-  --color-accent-edit-hover: #FF85B1;
 
   /* Text colors */
   --color-text-primary: #EAEAF0;
@@ -99,15 +94,11 @@
   --accent-primary-hover: #8370FF;
   --accent-primary-active: #5A42E6;
   --accent-secondary: #00D4AA;
-  --accent-secondary-hover: #1AE0BA;
-  --accent-tertiary: #FF6B9D;
 
   /* Semantic action colors */
   --accent-upload: #FFB344;
   --accent-upload-hover: #FFC266;
   --accent-upload-active: #E6A03D;
-  --accent-edit: #FF6B9D;
-  --accent-edit-hover: #FF85B1;
 
   /* States */
   --state-success: #00D4AA;
